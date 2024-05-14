@@ -1,0 +1,131 @@
+.header__title {
+    color: #ffffff;
+    height: 10vh;
+    font-size: 2.3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+}
+.load{
+    background: linear-gradient(120deg, #ffffff0e 30%, #ffffff23 38%, #f0f0f032 40%, #e5e5e50c 40%);
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    animation: load 2s infinite;
+    width: 100%;
+    margin: 12px 0;
+    height: 100px;
+}
+@keyframes load{
+    100%{
+        background-position: -100% 0;
+    }
+}
+.footer {
+    grid-area: section__footer;
+    display: grid;
+    grid-template-columns: 1fr 8fr 1fr;
+    grid-template-areas: ". footer__menu .";
+}
+.footer ul {
+    grid-area: footer__menu;
+    background: #14162C;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+}
+.footer ul::after{
+    content: "";
+    position: relative;
+    margin-top:  0.1vh;
+    right: -1.8vi;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-left: 0 solid transparent;
+    border-right: 2.25vi solid transparent;
+    border-bottom: 4vi solid #14162C;
+}
+.footer ul::before{
+    content: "";
+    position: relative;
+    margin-top: 0.1vh;
+    left: -1.8vi;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-left: 2.25vi solid transparent;
+    border-right: 0 solid transparent;
+    border-bottom: 4vi solid  #14162C;
+}
+.footer ul li {
+    list-style: none;
+}
+.footer ul li a {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #cfcfd1;
+}
+.select{
+    padding: 8px 0;
+    border-bottom: 4px solid #ffffff;
+}
+.linea{
+    width: 15vw;
+    height: 3vh;
+    top: 7vh;
+    background-color: #14162C;
+    position:relative;
+    z-index: -1;
+}
+.main {
+    height: 90vh;
+    display: grid;
+    grid-template-columns: 1.5fr 6fr 2fr;
+    grid-template-areas: "nav__1 main nav__2";
+}
+
+.nav__description {
+    grid-area: nav__1;
+}
+
+.description__item {
+    overflow-y: auto;
+    height: 75vh;
+}
+
+
+.description__container div:last-child h3 {
+    color: #ffffff;
+}
+
+.description__container div:last-child small,
+.description__container div:last-child a {
+    margin-top: 1vi;
+    color: #cfcfd1;
+    text-decoration: none;
+}
+
+.main__section {
+    grid-area: main;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: 2.3fr 5fr 1fr;
+    grid-template-areas:
+        "section__header"
+        "section__main"
+        "section__footer";
+}
+
+.section__information__1 {
+    grid-area: section__header;
+    display: flex;
+    overflow-x: auto;
+    gap: 0.1vi;
+    justify-content: space-evenly;
+}
