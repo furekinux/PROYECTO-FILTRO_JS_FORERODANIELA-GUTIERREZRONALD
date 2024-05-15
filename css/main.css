@@ -181,13 +181,32 @@
 }
 
 #rocketInfo{
-    margin-right: 10vw;
+    margin-right: 12vw;
 }
 #engineInfo{
-    margin-left: 10vw;
+    margin-left: 12vw;
 }
 
 .color_w{
     font-weight: 100;
     color: #ffffff;
+    padding-bottom: 1vh;
+
+}
+.color_v{
+    font-weight: 100;
+    color: #9499C3;
+    padding-bottom: 1vh;
+}
+.table_R{
+    margin-top: 1vh;
+    text-align: left;
+    font-size: 0.8vi;
+}
+h3{
+    font-size: 1vi;
+    font-weight: 500;
+    color: #9499C3;
+    padding-bottom: 1vh;
+    border-bottom: 0.1vi solid #9499C3;
 }
