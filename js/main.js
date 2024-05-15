@@ -42,6 +42,107 @@ setTimeout(() => {
                             let rocketIn = document.getElementById("rocketInfo")
                             let engineIn = document.getElementById("engineInfo")
                             let imgIn = document.getElementById("images")
+                            let extra_L = document.getElementById("extra_left")
+                            let extra_R = document.getElementById("extra_right")
+                            let deco_ro = document.getElementById("deco_rocket").innerHTML = `<img class="appear" src="../storage/img/rocket_boost.svg">`
+                            let deco_en = document.getElementById("deco_engine").innerHTML = `<img class="appear" src="../storage/img/engine.svg">`
+
+
+                            extra_R.innerHTML = `
+                            <table class="table_R appear">
+                                <tr>
+                                    <th>
+                                        <h3>Description</h3>
+                                        <p style="margin-top:1vh; font-size: 0.9vi;" class="color_w">${rocket.description}</p>
+                                    </th>
+                                </tr>
+                            </table>
+                            `
+                            extra_L.innerHTML = `
+                            <table class="table_R appear">
+                                <tr>
+                                    <th><img class="vinieta" src="../storage/img/check_cir.svg"></th>
+                                    <th>
+                                        <ul>
+                                            <li class="color_v">ALL SYSTEMS CHECK</li>
+                                            <li class="color_v">Normal</li>
+                                        </ul>
+                                    </th>
+                                </tr>
+                            </table>
+
+                            <table class="table_R appear">
+                                <tr>
+                                    <th><img class="vinieta" src="../storage/img/check_cir.svg"></th>
+                                    <th>
+                                        <ul>
+                                            <li class="color_v">RENDEZVOUS BURN SLOW</li>
+                                            <li class="color_v">Normal</li>
+                                        </ul>
+                                    </th>
+                                </tr>
+                            </table>
+
+                            <table class="table_R appear">
+                                <tr>
+                                    <th><img class="vinieta" src="../storage/img/check_cir.svg"></th>
+                                    <th>
+                                        <ul>
+                                            <li class="color_v">PREPARE RENDEZVOUS BURN</li>
+                                            <li class="color_v">Normal</li>
+                                        </ul>
+                                    </th>
+                                </tr>
+                            </table>
+
+                            <table class="table_R appear">
+                                <tr>
+                                    <th><img class="vinieta" src="../storage/img/check_cir_v.svg"></th>
+                                    <th>
+                                        <ul>
+                                            <li class="color_v">THERMAL SHIELD</li>
+                                            <li class="color_w">Applied</li>
+                                        </ul>
+                                    </th>
+                                </tr>
+                            </table>
+
+                            <table class="table_R appear">
+                                <tr>
+                                    <th><img class="vinieta" src="../storage/img/check_cir.svg"></th>
+                                    <th>
+                                        <ul>
+                                            <li class="color_v">BURN GO/NO-GO</li>
+                                            <li class="color_v">Normal</li>
+                                        </ul>
+                                    </th>
+                                </tr>
+                            </table>
+
+                            <table class="table_R appear">
+                                <tr>
+                                    <th><img class="vinieta" src="../storage/img/check_cir_o.svg"></th>
+                                    <th>
+                                        <ul>
+                                            <li class="color_v">POWER COMPLETION</li>
+                                            <li class="color_w">Awaiting</li>
+                                        </ul>
+                                    </th>
+                                </tr>
+                            </table>
+
+                            <table class="table_R appear">
+                                <tr>
+                                    <th><img class="vinieta" src="../storage/img/check_cir.svg"></th>
+                                    <th>
+                                        <ul>
+                                            <li class="color_v">STATION</li>
+                                            <li class="color_w">Normal</li>
+                                        </ul>
+                                    </th>
+                                </tr>
+                            </table>
+                            `
 
                             if(rocket.landing_legs.material === null){
                                 rocket.landing_legs.material = "none"
@@ -120,6 +221,7 @@ setTimeout(() => {
                                 let newimg = document.createElement("img")
                                 newimg.setAttribute("src",image)
                                 newimg.classList.add("imgRo")
+                                newimg.classList.add("appear")
                                 imgIn.appendChild(newimg)
                             });
                             
@@ -139,7 +241,6 @@ setTimeout(() => {
     }
     xhr.send();
 }, 5000);
-
 function fetchDefault(data){
     let rocket = data[0]
     let rocketIn = document.getElementById("rocketInfo")
@@ -148,8 +249,22 @@ function fetchDefault(data){
     let extra_L = document.getElementById("extra_left")
     let extra_R = document.getElementById("extra_right")
 
+    let deco_ro = document.getElementById("deco_rocket").innerHTML = `<img class="appear" src="../storage/img/rocket_boost.svg">`
+
+    let deco_en = document.getElementById("deco_engine").innerHTML = `<img class="appear" src="../storage/img/engine.svg">`
+
+    extra_R.innerHTML = `
+    <table class="table_R appear">
+        <tr>
+            <th>
+                <h3>Description</h3>
+                <p style="margin-top:1vh; font-size: 0.9vi;" class="color_w">${rocket.description}</p>
+            </th>
+        </tr>
+    </table>
+    `
     extra_L.innerHTML = `
-    <table class="table_R">
+    <table class="table_R appear">
         <tr>
             <th><img class="vinieta" src="../storage/img/check_cir.svg"></th>
             <th>
@@ -161,7 +276,7 @@ function fetchDefault(data){
         </tr>
     </table>
 
-    <table class="table_R">
+    <table class="table_R appear">
         <tr>
             <th><img class="vinieta" src="../storage/img/check_cir.svg"></th>
             <th>
@@ -173,7 +288,7 @@ function fetchDefault(data){
         </tr>
     </table>
 
-    <table class="table_R">
+    <table class="table_R appear">
         <tr>
             <th><img class="vinieta" src="../storage/img/check_cir.svg"></th>
             <th>
@@ -185,7 +300,7 @@ function fetchDefault(data){
         </tr>
     </table>
 
-    <table class="table_R">
+    <table class="table_R appear">
         <tr>
             <th><img class="vinieta" src="../storage/img/check_cir_v.svg"></th>
             <th>
@@ -197,7 +312,7 @@ function fetchDefault(data){
         </tr>
     </table>
 
-    <table class="table_R">
+    <table class="table_R appear">
         <tr>
             <th><img class="vinieta" src="../storage/img/check_cir.svg"></th>
             <th>
@@ -209,7 +324,7 @@ function fetchDefault(data){
         </tr>
     </table>
 
-    <table class="table_R">
+    <table class="table_R appear">
         <tr>
             <th><img class="vinieta" src="../storage/img/check_cir_o.svg"></th>
             <th>
@@ -221,7 +336,7 @@ function fetchDefault(data){
         </tr>
     </table>
 
-    <table class="table_R">
+    <table class="table_R appear">
         <tr>
             <th><img class="vinieta" src="../storage/img/check_cir.svg"></th>
             <th>
@@ -233,7 +348,6 @@ function fetchDefault(data){
         </tr>
     </table>
     `
-
     if(rocket.landing_legs.material === null){
         rocket.landing_legs.material = "none"
     }else{}
@@ -248,10 +362,10 @@ function fetchDefault(data){
     if(rocket.engines.layout===null){
         rocket.engines.layout = "none"
     }
-    let rocketN = document.getElementById("header__title").innerHTML = `${rocket.name}`
+    let rocketN = document.getElementById("header__title").innerHTML = `<rocket class="appear">${rocket.name}</rocket>`
     rocketIn.innerHTML = `
-    <h3>ROCKET INFORMATION</h3>
-    <table class="table_R">
+    <h3 class="appear">ROCKET INFORMATION</h3>
+    <table class="table_R appear">
         <tr>
             <th style="width: 9vw" class="color_v">Type</th><th class="color_w">${rocket.type}</th>
         </tr>
@@ -311,6 +425,7 @@ function fetchDefault(data){
         newimg.setAttribute("src",image)
         newimg.setAttribute("referrerpolicy","no-referrer")
         newimg.classList.add("imgRo")
+        newimg.classList.add("appear")
         imgIn.appendChild(newimg)
     });
 }
