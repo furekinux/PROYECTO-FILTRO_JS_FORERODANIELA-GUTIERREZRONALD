@@ -7,6 +7,9 @@
     align-items: center;
     text-transform: uppercase;
 }
+*{
+    list-style: none;
+}
 .load{
     background: linear-gradient(120deg, #ffffff0e 30%, #ffffff23 38%, #f0f0f032 40%, #e5e5e50c 40%);
     background-size: 200% 100%;
@@ -15,11 +18,11 @@
     width: 100%;
     margin: 12px 0;
     height: 100px;
+    overflow: -moz-hidden-unscrollable;
 }
 @keyframes load{
     100%{
-        background-position: -100% 0;
-    }
+        background-position: -100% 0;}
 }
 .footer {
     grid-area: section__footer;
@@ -75,42 +78,60 @@
     border-bottom: 4px solid #ffffff;
 }
 .linea{
-    width: 15vw;
-    height: 3vh;
-    top: 7vh;
+    width: 30vw;
+    height: 4vh;
+    top: 95.55%;
     background-color: #14162C;
-    position:relative;
+    position:absolute;
     z-index: -1;
 }
+.linea1{
+    left: 50vw;
+}
+.linea2{
+    right: 50vw;
+}
 .main {
+    width: 100%;
     height: 90vh;
     display: grid;
     grid-template-columns: 1.5fr 6fr 2fr;
     grid-template-areas: "nav__1 main nav__2";
 }
-
+.imgs{
+    position: relative;
+    top: 19vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    z-index: 90;
+}
+.space4img{
+    display: flex;
+    width: 15vw;
+    height: 22vh;
+    overflow-y: -moz-hidden-unscrollable;
+    overflow-x: auto;
+    z-index: 91;
+}
 .nav__description {
     grid-area: nav__1;
 }
-
 .description__item {
     overflow-y: auto;
     height: 75vh;
 }
-
-
 .description__container div:last-child h3 {
     color: #ffffff;
 }
-
 .description__container div:last-child small,
 .description__container div:last-child a {
     margin-top: 1vi;
     color: #cfcfd1;
     text-decoration: none;
 }
-
 .main__section {
+    width: 100%;
     grid-area: main;
     position: relative;
     display: grid;
@@ -121,11 +142,143 @@
         "section__main"
         "section__footer";
 }
-
 .section__information__1 {
     grid-area: section__header;
     display: flex;
     overflow-x: auto;
     gap: 0.1vi;
     justify-content: space-evenly;
+}
+.buttons{
+    top: 74vh;
+    height: 7.3vh;
+    width: 20vw;
+    position: relative;
+    right: -76vw;
+    overflow-y: -moz-hidden-unscrollable;
+    overflow-x: auto;
+    margin: 0;
+    padding: 0;
+}
+.buttons button{
+    color: #ffffff;
+    width: 3.2vw;
+    height: 5.5vh;
+    border: solid 0.1vi #cfcfd175;
+    background-color: #14162C;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+}
+.rocket_info{
+    position: relative;
+    top: 11vh;
+    display: flex;
+    width: 60vw;
+    height: 22vh;
+    justify-content: center;
+}
+.rocket_info div{
+    width: 14vw;
+    height: 35vh;
+}
+#rocketInfo{
+    margin-right: 12vw;
+}
+#engineInfo{
+    margin-left: 12vw;
+}
+.color_w{
+    font-size: 0.9vi;
+    font-weight: 100;
+    color: #ffffff;
+    padding-bottom: 1vh;
+}
+.color_v{
+    font-size: 0.9vi;
+    font-weight: 100;
+    color: #9499C3;
+    padding-bottom: 1vh;
+}
+.table_R{
+    margin-top: 1vh;
+    text-align: left;
+    font-size: 0.8vi;
+}
+h3{
+    font-size: 1vi;
+    font-weight: 500;
+    color: #9499C3;
+    padding-bottom: 1vh;
+    border-bottom: 0.1vi solid #9499C3;
+}
+.imgRo{
+    width: 15.2vw;
+    height: 20vh;
+}
+.appear{
+    animation: showup 1.5s 0s;
+}
+@keyframes showup {
+    0%{
+        transform: translateY(-3vh);
+        opacity: 0%;
+    }
+}
+
+a img{
+    width: 2.5vw;
+}
+
+.extra_info{
+    z-index: 10;
+    width: 100%;
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    top: 14vh;
+}
+.extra_info div{
+    width: 17vw;
+    height: 65vh;
+}
+#extra_left{
+    margin-right: 28vw;
+}
+#extra_right{
+    margin-left: 28vw;
+}
+
+.vinieta{
+    width: 2vw;
+}
+.deco_icon{
+    width: 100%;
+    top: 7vh;
+    position: absolute;
+    display: flex;
+    justify-content:center;
+}
+.deco_icon div{
+    width: 14vw;
+    height: 25vh;
+    
+}
+#deco_rocket{
+    margin-right: 12vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#deco_engine{
+    margin-left: 12vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#deco_rocket img{
+    width: 10vw;
+}
+#deco_engine img{
+    width: 10vw;
 }
