@@ -189,11 +189,13 @@
     margin-left: 12vw;
 }
 .color_w{
+    font-size: 0.9vi;
     font-weight: 100;
     color: #ffffff;
     padding-bottom: 1vh;
 }
 .color_v{
+    font-size: 0.9vi;
     font-weight: 100;
     color: #9499C3;
     padding-bottom: 1vh;
@@ -249,4 +251,34 @@ a img{
 
 .vinieta{
     width: 2vw;
+}
+.deco_icon{
+    width: 100%;
+    top: 7vh;
+    position: absolute;
+    display: flex;
+    justify-content:center;
+}
+.deco_icon div{
+    width: 14vw;
+    height: 25vh;
+    
+}
+#deco_rocket{
+    margin-right: 12vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#deco_engine{
+    margin-left: 12vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#deco_rocket img{
+    width: 10vw;
+}
+#deco_engine img{
+    width: 10vw;
 }
