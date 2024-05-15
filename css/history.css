@@ -1,0 +1,230 @@
+.header__title {
+    color: #ffffff;
+    height: 10vh;
+    font-size: 2.3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+}
+*{
+    list-style: none;
+}
+.load{
+    background: linear-gradient(120deg, #ffffff0e 30%, #ffffff23 38%, #f0f0f032 40%, #e5e5e50c 40%);
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    animation: load 2s infinite;
+    width: 100%;
+    margin: 12px 0;
+    height: 100px;
+    overflow: -moz-hidden-unscrollable;
+}
+@keyframes load{
+    100%{
+        background-position: -100% 0;}
+}
+.footer {
+    grid-area: section__footer;
+    display: grid;
+    grid-template-columns: 1fr 8fr 1fr;
+    grid-template-areas: ". footer__menu .";
+}
+.footer ul {
+    grid-area: footer__menu;
+    background: #14162C;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+}
+.footer ul::after{
+    content: "";
+    position: relative;
+    margin-top:  0.1vh;
+    right: -1.8vi;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-left: 0 solid transparent;
+    border-right: 2.25vi solid transparent;
+    border-bottom: 4vi solid #14162C;
+}
+.footer ul::before{
+    content: "";
+    position: relative;
+    margin-top: 0.1vh;
+    left: -1.8vi;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-left: 2.25vi solid transparent;
+    border-right: 0 solid transparent;
+    border-bottom: 4vi solid  #14162C;
+}
+.footer ul li {
+    list-style: none;
+}
+.footer ul li a {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #cfcfd1;
+}
+.select{
+    padding: 8px 0;
+    border-bottom: 4px solid #ffffff;
+}
+.linea{
+    width: 30vw;
+    height: 4vh;
+    top: 95.55%;
+    background-color: #14162C;
+    position:absolute;
+    z-index: -1;
+}
+.linea1{
+    left: 50vw;
+}
+.linea2{
+    right: 50vw;
+}
+.main {
+    width: 100%;
+    height: 90vh;
+    display: grid;
+    grid-template-columns: 1fr 6fr 2fr;
+    grid-template-areas: "nav__1 main nav__2";
+}
+.nav__description {
+    grid-area: nav__1;
+}
+.description__item {
+    overflow-y: auto;
+    height: 75vh;
+}
+.description__container div:last-child h3 {
+    color: #ffffff;
+}
+.description__container div:last-child small,
+.description__container div:last-child a {
+    margin-top: 1vi;
+    color: #cfcfd1;
+    text-decoration: none;
+}
+.main__section {
+    width: 100%;
+    grid-area: main;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: 2.3fr 5fr 1fr;
+    grid-template-areas:
+        "section__header"
+        "section__main"
+        "section__footer";
+}
+.section__information__1 {
+    grid-area: section__header;
+    display: flex;
+    overflow-x: auto;
+    gap: 0.1vi;
+    justify-content: space-evenly;
+}
+.buttons{
+    top: 74vh;
+    height: 7.3vh;
+    width: 20vw;
+    position: relative;
+    right: -76vw;
+    overflow-y: -moz-hidden-unscrollable;
+    overflow-x: auto;
+    margin: 0;
+    padding: 0;
+}
+.buttons button{
+    color: #ffffff;
+    width: 3.2vw;
+    height: 5.5vh;
+    border: solid 0.1vi #cfcfd175;
+    background-color: #14162C;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+}
+.color_w{
+    font-size: 1.5vi;
+    font-weight: 100;
+    color: #ffffff;
+    padding-bottom: 1vh;
+}
+.color_v{
+    font-size: 0.9vi;
+    font-weight: 100;
+    color: #9499C3;
+    padding-bottom: 1vh;
+}
+.table_R{
+    margin-top: 1vh;
+    text-align: left;
+    font-size: 0.8vi;
+}
+h3{
+    font-size: 1vi;
+    font-weight: 500;
+    color: #9499C3;
+    padding-bottom: 1vh;
+    border-bottom: 0.1vi solid #9499C3;
+}
+.appear{
+    animation: showup 1.5s 0s;
+}
+@keyframes showup {
+    0%{
+        transform: translateY(-3vh);
+        opacity: 0%;
+    }
+}
+a img{
+    width: 2.5vw;
+}
+.news{
+    position: absolute;
+    width: 100%;
+    height: 70vh;
+    justify-content: space-around;
+    overflow: auto;
+}
+.square{
+    background-color: #cfcfd13b;
+    margin-top: 1vh;
+    padding: 0.5vi;
+    padding-bottom: 1.2vi;
+}
+.square a{
+    text-decoration: none;
+    color: #ffffff;
+    border: solid 0.1vi #cfcfd1;
+    padding: 0.5vi;
+    margin-top: 1vi;
+    text-align: center;
+    background-color: #14162C;
+}
+/*
+event_date_unix
+: 
+1222643700
+event_date_utc
+: 
+"2008-09-28T23:15:00Z"
+id
+: 
+"5f6fb2cfdcfdf403df37971e"
+links
+: 
+{article: 'http://www.spacex.com/news/2013/02/11/flight-4-launch-update-0'}
+title
+: 
+"Falcon reaches Earth orbit"*/
