@@ -1,8 +1,18 @@
-arrayRockets= []
 setTimeout(() => {
+    arrayRockets= []
     let items = document.querySelectorAll("div")
+    let items2 = document.querySelectorAll("section")
     items.forEach(element => {
         element.classList.remove("load")
+    });
+    items2.forEach(element => {
+        element.classList.remove("load")
+    });
+    items.forEach(element => {
+        element.classList.add("appear")
+    });
+    items2.forEach(element => {
+        element.classList.add("appear")
     });
     const apiUrlRockets = 'https://api.spacexdata.com/v4/rockets';
     let xhr = new XMLHttpRequest();
@@ -12,6 +22,7 @@ setTimeout(() => {
             let response = JSON.parse(this.responseText)
             console.log(response)
             i=1
+            fetchDefault(response)
             response.forEach(element => {
                 let newbutton = document.createElement("button");
                 newbutton.innerText = `${i}`;
@@ -41,10 +52,16 @@ setTimeout(() => {
                             }else{
                                 rocket.active = "yes"
                             }
-                            let rocketN = document.getElementById("header__title").innerHTML = `${rocket.name}`
+                            if(rocket.engines.engine_loss_max === null){
+                                rocket.engines.engine_loss_max = "none"
+                            }
+                            if(rocket.engines.layout===null){
+                                rocket.engines.layout = "none"
+                            }
+                            let rocketN = document.getElementById("header__title").innerHTML = `<rocket class="appear">${rocket.name}</rocket>`
                             rocketIn.innerHTML = `
-                            <h3>ROCKET INFORMATION</h3>
-                            <table class="table_R">
+                            <h3 class="appear">ROCKET INFORMATION</h3>
+                            <table class="appear table_R">
                                 <tr>
                                     <th style="width: 9vw" class="color_v">Type</th><th class="color_w">${rocket.type}</th>
                                 </tr>
@@ -75,8 +92,8 @@ setTimeout(() => {
                             </table>
                             `
                             engineIn.innerHTML = `
-                            <h3>ENGINE INFORMATION</h3>
-                            <table class="table_R">
+                            <h3 class="appear">ENGINE INFORMATION</h3>
+                            <table class="appear table_R">
                                 <tr>
                                     <th style="width: 9vw" class="color_v">Type</th><th class="color_w">${rocket.engines.type}</th>
                                 </tr>
@@ -97,11 +114,14 @@ setTimeout(() => {
                                 </tr>
                             </table>
                             `
-                            rocket.flickr_images.forEach(img => {
-                                newimg = document.createElement("img")
-                                newimg.innerHTML = `<img src="${img}"/>`
+                            let imagesArr = rocket.flickr_images
+                            imgIn.innerHTML = ""
+                            imagesArr.forEach(image => {
+
+                                let newimg = document.createElement("img")
+                                newimg.setAttribute("src",image)
+                                newimg.classList.add("imgRo")
                                 imgIn.appendChild(newimg)
-                                
                             });
                             
                         } else if(this.readyState ===4){
@@ -120,3 +140,75 @@ setTimeout(() => {
     }
     xhr.send();
 }, 1000);
+
+function fetchDefault(data){
+    let rocket = data[0]
+    let rocketIn = document.getElementById("rocketInfo")
+    let engineIn = document.getElementById("engineInfo")
+    let imgIn = document.getElementById("images")
+    let rocketN = document.getElementById("header__title").innerHTML = `${rocket.name}`
+    rocketIn.innerHTML = `
+    <h3>ROCKET INFORMATION</h3>
+    <table class="table_R">
+        <tr>
+            <th style="width: 9vw" class="color_v">Type</th><th class="color_w">${rocket.type}</th>
+        </tr>
+        <tr>
+            <th class="color_v">Rocket in service</th><th class="color_w">${rocket.active}</th>
+        </tr>
+        <tr>
+            <th class="color_v">Number of stages</th><th class="color_w">${rocket.stages}</th>
+        </tr>
+        <tr>
+            <th class="color_v">Number of propellants</th><th class="color_w">${rocket.type}</th><!--Hello-->
+        </tr>
+        <tr>
+            <th class="color_v">Landing legs</th><th class="color_w">${rocket.landing_legs.number}</th>
+        </tr>
+        <tr>
+            <th class="color_v">Leg material</th><th class="color_w">${rocket.landing_legs.material}</th>
+        </tr>
+        <tr>
+            <th class="color_v">Height</th><th class="color_w">${rocket.height.meters} m</th>
+        </tr>
+        <tr>
+            <th class="color_v">Diameter</th><th class="color_w">${rocket.diameter.meters} m</th>
+        </tr>
+        <tr>
+            <th class="color_v">Mass</th><th class="color_w">${rocket.mass.kg} kg</th>
+        </tr>
+    </table>
+    `
+    engineIn.innerHTML = `
+    <h3>ENGINE INFORMATION</h3>
+    <table class="table_R">
+        <tr>
+            <th style="width: 9vw" class="color_v">Type</th><th class="color_w">${rocket.engines.type}</th>
+        </tr>
+        <tr>
+            <th class="color_v">Maximum power loss</th><th class="color_w">${rocket.engines.engine_loss_max}</th>
+        </tr>
+        <tr>
+            <th class="color_v">Engine availability</th><th class="color_w">${rocket.engines.layout}</th>
+        </tr>
+        <tr>
+            <th class="color_v">Number of engines</th><th class="color_w">${rocket.engines.number}</th><!--Hello-->
+        </tr>
+        <tr>
+            <th class="color_v">Stage 1 fuel</th><th class="color_w">${rocket.engines.propellant_1}</th>
+        </tr>
+        <tr>
+            <th class="color_v">Stage 2 fuel</th><th class="color_w">${rocket.engines.propellant_2}</th>
+        </tr>
+    </table>
+    `
+    let imagesArr = rocket.flickr_images
+    imgIn.innerHTML = ""
+    imagesArr.forEach(image => {
+
+        let newimg = document.createElement("img")
+        newimg.setAttribute("src",image)
+        newimg.classList.add("imgRo")
+        imgIn.appendChild(newimg)
+    });
+}
