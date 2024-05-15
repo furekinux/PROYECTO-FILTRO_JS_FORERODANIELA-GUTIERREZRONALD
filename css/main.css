@@ -7,6 +7,9 @@
     align-items: center;
     text-transform: uppercase;
 }
+*{
+    list-style: none;
+}
 .load{
     background: linear-gradient(120deg, #ffffff0e 30%, #ffffff23 38%, #f0f0f032 40%, #e5e5e50c 40%);
     background-size: 200% 100%;
@@ -219,4 +222,31 @@ h3{
         transform: translateY(-3vh);
         opacity: 0%;
     }
+}
+
+a img{
+    width: 2.5vw;
+}
+
+.extra_info{
+    z-index: 10;
+    width: 100%;
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    top: 14vh;
+}
+.extra_info div{
+    width: 17vw;
+    height: 65vh;
+}
+#extra_left{
+    margin-right: 28vw;
+}
+#extra_right{
+    margin-left: 28vw;
+}
+
+.vinieta{
+    width: 2vw;
 }
