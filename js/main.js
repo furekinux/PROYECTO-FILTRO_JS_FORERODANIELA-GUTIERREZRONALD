@@ -43,7 +43,6 @@ setTimeout(() => {
                             let engineIn = document.getElementById("engineInfo")
                             let imgIn = document.getElementById("images")
 
-
                             if(rocket.landing_legs.material === null){
                                 rocket.landing_legs.material = "none"
                             }else{}
@@ -72,7 +71,7 @@ setTimeout(() => {
                                     <th class="color_v">Number of stages</th><th class="color_w">${rocket.stages}</th>
                                 </tr>
                                 <tr>
-                                    <th class="color_v">Number of propellants</th><th class="color_w">${rocket.type}</th><!--Hello-->
+                                    <th class="color_v">Number of propellants</th><th class="color_w">${rocket.stages}</th><!--Hello-->
                                 </tr>
                                 <tr>
                                     <th class="color_v">Landing legs</th><th class="color_w">${rocket.landing_legs.number}</th>
@@ -139,13 +138,116 @@ setTimeout(() => {
         }
     }
     xhr.send();
-}, 1000);
+}, 5000);
 
 function fetchDefault(data){
     let rocket = data[0]
     let rocketIn = document.getElementById("rocketInfo")
     let engineIn = document.getElementById("engineInfo")
     let imgIn = document.getElementById("images")
+    let extra_L = document.getElementById("extra_left")
+    let extra_R = document.getElementById("extra_right")
+
+    extra_L.innerHTML = `
+    <table class="table_R">
+        <tr>
+            <th><img class="vinieta" src="../storage/img/check_cir.svg"></th>
+            <th>
+                <ul>
+                    <li class="color_v">ALL SYSTEMS CHECK</li>
+                    <li class="color_v">Normal</li>
+                </ul>
+            </th>
+        </tr>
+    </table>
+
+    <table class="table_R">
+        <tr>
+            <th><img class="vinieta" src="../storage/img/check_cir.svg"></th>
+            <th>
+                <ul>
+                    <li class="color_v">RENDEZVOUS BURN SLOW</li>
+                    <li class="color_v">Normal</li>
+                </ul>
+            </th>
+        </tr>
+    </table>
+
+    <table class="table_R">
+        <tr>
+            <th><img class="vinieta" src="../storage/img/check_cir.svg"></th>
+            <th>
+                <ul>
+                    <li class="color_v">PREPARE RENDEZVOUS BURN</li>
+                    <li class="color_v">Normal</li>
+                </ul>
+            </th>
+        </tr>
+    </table>
+
+    <table class="table_R">
+        <tr>
+            <th><img class="vinieta" src="../storage/img/check_cir_v.svg"></th>
+            <th>
+                <ul>
+                    <li class="color_v">THERMAL SHIELD</li>
+                    <li class="color_w">Applied</li>
+                </ul>
+            </th>
+        </tr>
+    </table>
+
+    <table class="table_R">
+        <tr>
+            <th><img class="vinieta" src="../storage/img/check_cir.svg"></th>
+            <th>
+                <ul>
+                    <li class="color_v">BURN GO/NO-GO</li>
+                    <li class="color_v">Normal</li>
+                </ul>
+            </th>
+        </tr>
+    </table>
+
+    <table class="table_R">
+        <tr>
+            <th><img class="vinieta" src="../storage/img/check_cir_o.svg"></th>
+            <th>
+                <ul>
+                    <li class="color_v">POWER COMPLETION</li>
+                    <li class="color_w">Awaiting</li>
+                </ul>
+            </th>
+        </tr>
+    </table>
+
+    <table class="table_R">
+        <tr>
+            <th><img class="vinieta" src="../storage/img/check_cir.svg"></th>
+            <th>
+                <ul>
+                    <li class="color_v">STATION</li>
+                    <li class="color_w">Normal</li>
+                </ul>
+            </th>
+        </tr>
+    </table>
+    `
+
+    if(rocket.landing_legs.material === null){
+        rocket.landing_legs.material = "none"
+    }else{}
+    if(rocket.active === false){
+        rocket.active = "no"
+    }else{
+        rocket.active = "yes"
+    }
+    if(rocket.engines.engine_loss_max === null){
+        rocket.engines.engine_loss_max = "none"
+    }
+    if(rocket.engines.layout===null){
+        rocket.engines.layout = "none"
+    }
     let rocketN = document.getElementById("header__title").innerHTML = `${rocket.name}`
     rocketIn.innerHTML = `
     <h3>ROCKET INFORMATION</h3>
@@ -160,7 +262,7 @@ function fetchDefault(data){
             <th class="color_v">Number of stages</th><th class="color_w">${rocket.stages}</th>
         </tr>
         <tr>
-            <th class="color_v">Number of propellants</th><th class="color_w">${rocket.type}</th><!--Hello-->
+            <th class="color_v">Number of propellants</th><th class="color_w">${rocket.stages}</th><!--Hello-->
         </tr>
         <tr>
             <th class="color_v">Landing legs</th><th class="color_w">${rocket.landing_legs.number}</th>
@@ -205,9 +307,9 @@ function fetchDefault(data){
     let imagesArr = rocket.flickr_images
     imgIn.innerHTML = ""
     imagesArr.forEach(image => {
-
         let newimg = document.createElement("img")
         newimg.setAttribute("src",image)
+        newimg.setAttribute("referrerpolicy","no-referrer")
         newimg.classList.add("imgRo")
         imgIn.appendChild(newimg)
     });
