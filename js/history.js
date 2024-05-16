@@ -30,16 +30,17 @@ setTimeout(() => {
     xhr.send();
 }, 0);
 function fetchDefault(data){
+    let title = document.getElementById("title").innerHTML=`HISTORY`
     data.forEach(element => {
         let date=element.event_date_utc
         let newdate=date.slice(0,10).replaceAll("-","/")
         let newdiv = document.createElement("div");
         newdiv.classList.add("square")
         newdiv.innerHTML = `
-        <h2 class="color_w">${element.title}</h2>
+        <h2 style="font-size: 1.7vi" class="color_w">${element.title}</h2>
         <p class="color_v"><b>${newdate}</b></p>
-        <p class="color_v">${element.details}</p>
-        <a href="">LEARN MORE.</a>
+        <p style="margin-bottom:2vh; margin-left: 1vw; font-size: 1.3vi" class="color_v">${element.details}</p>
+        <a href="${element.links.article}">LEARN MORE.</a>
         `;
         let historyS =document.getElementById("history");
         historyS.appendChild(newdiv)
