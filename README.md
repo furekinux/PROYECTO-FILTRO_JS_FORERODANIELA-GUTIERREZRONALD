@@ -17,3 +17,7 @@ En este apartado se permite la visualización de distintos eventos y noticias re
 
 ### MÓDULO DE COMPAÑÍA
 Finalmente, este módulo presenta la información general de la empresa, actuales encargados y enlaces para consultar sus respectivas redes o páginas oficiales.
+
+## MAQUETACIÓN FIGMA
+
+https://www.figma.com/design/PlUZgqyEoMM4ocT6OMbaB6/SpaceX-Project---Daniela-Forero-%26-Ronal-Gutierrez?t=FCPIzZL6Gi6XY8EP-1
